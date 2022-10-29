@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     border: solid black;
-    width: 960px;
-    height: 600px;
+    width: 850px;
+    height: 850px;
 }
 
 .row {
@@ -13,5 +13,9 @@
 
 .pixel {
     flex: 1;
-    border: solid green;
+    border: 2px solid green;
+}
+
+.black{
+    background-color: black;
 }
