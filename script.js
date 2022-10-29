@@ -1,11 +1,7 @@
-// Algorithm
-// Creating grid
-// Input the size of grid
-
-
 const container = document.querySelector('.container');
 let pixel;
 let row;
+
 const size = prompt("Enter grid size:");
 
 for (let i=1;i<=size;i++){
@@ -25,3 +21,30 @@ for (let i=1;i<=size;i++){
 
 }
 
+const pixels = document.querySelectorAll('.pixel');
+
+pixels.forEach((pixel)=>{
+
+    pixel.ondragstart = function() {
+        return false;
+      };
+
+    pixel.addEventListener("mousedown", () => {
+        
+        let done = false;
+        pixel.classList.add('black');
+        pixels.forEach((pixel)=>{
+
+            pixel.addEventListener("mouseover", () => {
+
+                window.addEventListener("mouseup", () => {
+                    done=true;
+                });
+                if(!done){
+                    pixel.classList.add('black');
+                }
+
+            });
+        });
+    });
+});
