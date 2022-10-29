@@ -9,6 +9,10 @@ let row;
 const size = prompt("Enter grid size:");
 
 for (let i=1;i<=size;i++){
+    if (size>60){
+        alert("Max size is 60!");
+        break;
+    }
     row = document.createElement('div');
     row.classList.toggle('row');
     container.appendChild(row);
@@ -18,6 +22,6 @@ for (let i=1;i<=size;i++){
         pixel.classList.toggle('pixel');
         row.appendChild(pixel);
     }
-    
+
 }
 
