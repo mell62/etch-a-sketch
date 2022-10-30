@@ -14,9 +14,10 @@ sizeBtn.addEventListener("click", () => {
 sizeBtn.addEventListener("click", makeGrid);
 
 function makeGrid(){
-    rows.forEach((row) =>{
+    rows.forEach((row) => {
         container.removeChild(row);
-})
+    })
+
     for (let i=1;i<=firstSize.textContent;i++){
         if (firstSize.textContent>60){
             alert("Max size is 60!");
@@ -34,6 +35,32 @@ function makeGrid(){
 
     }
     rows = document.querySelectorAll('.row');
+    pixels = document.querySelectorAll('.pixel');
+    pixels.forEach((pixel)=>{
+
+        pixel.ondragstart = function() {
+            return false;
+          };
+    
+        pixel.addEventListener("mousedown", () => {
+            
+            let done = false;
+            pixel.classList.add('black');
+            pixels.forEach((pixel)=>{
+    
+                pixel.addEventListener("mouseover", () => {
+    
+                    window.addEventListener("mouseup", () => {
+                        done=true;
+                    });
+                    if(!done){
+                        pixel.classList.add('black');
+                    }
+    
+                });
+            });
+        });
+    });
 }
 
 
@@ -55,7 +82,7 @@ for (let i=1;i<=firstSize.textContent;i++){
 }
 
 let rows = document.querySelectorAll('.row');
-const pixels = document.querySelectorAll('.pixel');
+let pixels = document.querySelectorAll('.pixel');
 
 pixels.forEach((pixel)=>{
 
