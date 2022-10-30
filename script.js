@@ -12,6 +12,7 @@ sizeBtn.addEventListener("click", () => {
 
 
 sizeBtn.addEventListener("click", makeGrid);
+sizeBtn.addEventListener("click", sketch);
 
 function makeGrid(){
     rows.forEach((row) => {
@@ -35,34 +36,37 @@ function makeGrid(){
 
     }
     rows = document.querySelectorAll('.row');
-    pixels = document.querySelectorAll('.pixel');
-    pixels.forEach((pixel)=>{
+}
 
+function sketch(){
+    let pixels = document.querySelectorAll('.pixel');
+
+    pixels.forEach((pixel)=>{
+        
         pixel.ondragstart = function() {
             return false;
-          };
-    
+        };
+
         pixel.addEventListener("mousedown", () => {
             
             let done = false;
             pixel.classList.add('black');
             pixels.forEach((pixel)=>{
-    
+
                 pixel.addEventListener("mouseover", () => {
-    
+
                     window.addEventListener("mouseup", () => {
                         done=true;
                     });
                     if(!done){
                         pixel.classList.add('black');
                     }
-    
+
                 });
             });
         });
     });
 }
-
 
 for (let i=1;i<=firstSize.textContent;i++){
     if (firstSize.textContent>60){
@@ -82,8 +86,8 @@ for (let i=1;i<=firstSize.textContent;i++){
 }
 
 let rows = document.querySelectorAll('.row');
-let pixels = document.querySelectorAll('.pixel');
 
+let pixels = document.querySelectorAll('.pixel');
 pixels.forEach((pixel)=>{
 
     pixel.ondragstart = function() {
