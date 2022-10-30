@@ -7,7 +7,10 @@ let row;
 
 sizeBtn.addEventListener("click", () => {
     const size = prompt("Enter grid size:");
-    if(size>60) {
+    if(!size){
+        firstSize.textContent = secondSize.textContent = firstSize.textContent;
+    }
+    else if(size>60) {
         alert("Max size is 60!");
         firstSize.textContent = secondSize.textContent = firstSize.textContent;
     }
