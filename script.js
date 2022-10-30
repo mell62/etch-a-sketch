@@ -44,7 +44,7 @@ function makeGrid(){
 function removeGrid(){
     rows.forEach((row) => {
         container.removeChild(row);
-    })
+    });
 }
 
 function sketch(){
@@ -55,8 +55,13 @@ function sketch(){
         };
         pixel.addEventListener("mousedown", () => {
             let done = false;
-            pixel.classList.add('black');
-            pixels.forEach((pixel)=>{
+            pixel.addEventListener("mouseup", () => {
+                done = true;
+            })
+            if(!done){
+                pixel.classList.add('black');
+            }
+            pixels.forEach((pixel)=>{                          // for click n drag
                 pixel.addEventListener("mouseover", () => {
                     window.addEventListener("mouseup", () => {
                         done=true;
@@ -75,7 +80,7 @@ function clearPixels(){
     let pixels = document.querySelectorAll('.pixel');
     pixels.forEach((pixel) => {
         pixel.classList.remove('black');
-    })
+    });
 }
 
 // default grid
@@ -99,7 +104,12 @@ pixels.forEach((pixel)=>{
       };
     pixel.addEventListener("mousedown", () => {  
         let done = false;
-        pixel.classList.add('black');
+        pixel.addEventListener("mouseup", () => {
+            done = true;
+        })
+        if(!done){
+            pixel.classList.add('black');
+        }
         pixels.forEach((pixel)=>{
             pixel.addEventListener("mouseover", () => {
                 window.addEventListener("mouseup", () => {
