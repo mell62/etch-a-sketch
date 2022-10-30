@@ -3,6 +3,7 @@ const sizeBtn = document.querySelector('.size-btn');
 const firstSize = document.querySelector('.size-1');
 const secondSize = document.querySelector('.size-2');
 const clearBtn = document.querySelector('.clear-btn');
+const eraserBtn = document.querySelector('.eraser-btn');
 let pixel;
 let row;
 
@@ -24,6 +25,7 @@ sizeBtn.addEventListener("click", removeGrid);
 sizeBtn.addEventListener("click", makeGrid);
 sizeBtn.addEventListener("click", sketch);
 clearBtn.addEventListener("click", clearPixels);
+eraserBtn.addEventListener("click", eraser);
 
 function makeGrid(){
     for (let i=1;i<=firstSize.textContent;i++){
@@ -80,6 +82,35 @@ function clearPixels(){
     let pixels = document.querySelectorAll('.pixel');
     pixels.forEach((pixel) => {
         pixel.classList.remove('black');
+    });
+}
+
+function eraser(){
+    let pixels = document.querySelectorAll('.pixel');
+    pixels.forEach((pixel)=>{
+        pixel.ondragstart = function() {
+            return false;
+        };
+        pixel.addEventListener("mousedown", () => {  
+            let done = false;
+            pixel.addEventListener("mouseup", () => {
+                done = true;
+            })
+            if(!done){
+                pixel.classList.remove('black');
+            }
+            pixels.forEach((pixel)=>{
+                pixel.addEventListener("mouseover", () => {
+                    window.addEventListener("mouseup", () => {
+                        done=true;
+                    });
+                    if(!done){
+                        pixel.classList.remove('black');
+                    }
+
+                });
+            });
+        });
     });
 }
 
