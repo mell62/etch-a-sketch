@@ -4,8 +4,8 @@ body{
 
 .heading {
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     font-family: "Caveat", sans-serif;
     font-size: 60px;
     font-weight: bold;
@@ -73,3 +73,17 @@ body{
     background-color: black;
 }
 
+.grid-size-parent{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.grid-size {
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 30px;
+    font-family: "Caveat", sans-serif;
+    color: rgb(228, 125, 142);
+    border: dashed rgb(255, 200, 209);
+}
