@@ -7,7 +7,13 @@ let row;
 
 sizeBtn.addEventListener("click", () => {
     const size = prompt("Enter grid size:");
-    firstSize.textContent = secondSize.textContent = size;
+    if(size>60) {
+        alert("Max size is 60!");
+        firstSize.textContent = secondSize.textContent = firstSize.textContent;
+    }
+    else {
+        firstSize.textContent = secondSize.textContent = size;
+    }
 });
 
 
@@ -20,10 +26,6 @@ function makeGrid(){
     })
 
     for (let i=1;i<=firstSize.textContent;i++){
-        if (firstSize.textContent>60){
-            alert("Max size is 60!");
-            break;
-        }
         row = document.createElement('div');
         row.classList.toggle('row');
         container.appendChild(row);
@@ -40,21 +42,15 @@ function makeGrid(){
 
 function sketch(){
     let pixels = document.querySelectorAll('.pixel');
-
-    pixels.forEach((pixel)=>{
-        
+    pixels.forEach((pixel)=>{       
         pixel.ondragstart = function() {
             return false;
         };
-
         pixel.addEventListener("mousedown", () => {
-            
             let done = false;
             pixel.classList.add('black');
             pixels.forEach((pixel)=>{
-
                 pixel.addEventListener("mouseover", () => {
-
                     window.addEventListener("mouseup", () => {
                         done=true;
                     });
@@ -69,39 +65,28 @@ function sketch(){
 }
 
 for (let i=1;i<=firstSize.textContent;i++){
-    if (firstSize.textContent>60){
-        alert("Max size is 60!");
-        break;
-    }
     row = document.createElement('div');
     row.classList.toggle('row');
     container.appendChild(row);
-
     for (let j=1;j<=firstSize.textContent;j++){
         pixel = document.createElement('div');
         pixel.classList.toggle('pixel');
         row.appendChild(pixel);
     }
-
 }
 
 let rows = document.querySelectorAll('.row');
 
 let pixels = document.querySelectorAll('.pixel');
 pixels.forEach((pixel)=>{
-
     pixel.ondragstart = function() {
         return false;
       };
-
-    pixel.addEventListener("mousedown", () => {
-        
+    pixel.addEventListener("mousedown", () => {  
         let done = false;
         pixel.classList.add('black');
         pixels.forEach((pixel)=>{
-
             pixel.addEventListener("mouseover", () => {
-
                 window.addEventListener("mouseup", () => {
                     done=true;
                 });
