@@ -42,13 +42,29 @@ body{
     text-shadow: 1px 1px 10px rgb(0, 0, 0);
 }
 
+.toy {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+img {
+    height: 550px;
+    width: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
 .container {
     background-color: rgb(211, 211, 211);
     display: flex;
     flex-direction: column;
-    border: solid black;
-    width: 850px;
-    height: 850px;
+    border: solid green;
+    border-radius: 20px;
+    width: 602px;
+    height: 375px;
+    margin-left: -688px;
+    margin-top: 58px;
 }
 
 .rows-container {
@@ -66,7 +82,6 @@ body{
 
 .pixel {
     flex: 1;
-    border: 1px solid green;
 }
 
 .black{
