@@ -2,6 +2,7 @@ const container = document.querySelector('.container');
 const sizeBtn = document.querySelector('.size-btn');
 const firstSize = document.querySelector('.size-1');
 const secondSize = document.querySelector('.size-2');
+const sketchBtn = document.querySelector('.sketch-btn');
 const clearBtn = document.querySelector('.clear-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
 let pixel;
@@ -24,6 +25,7 @@ sizeBtn.addEventListener("click", () => {
 sizeBtn.addEventListener("click", removeGrid);
 sizeBtn.addEventListener("click", makeGrid);
 sizeBtn.addEventListener("click", sketch);
+sketchBtn.addEventListener("click", sketch);
 clearBtn.addEventListener("click", clearPixels);
 eraserBtn.addEventListener("click", eraser);
 
