@@ -1,11 +1,43 @@
 const container = document.querySelector('.container');
+const sizeBtn = document.querySelector('.size-btn');
+const firstSize = document.querySelector('.size-1');
+const secondSize = document.querySelector('.size-2');
 let pixel;
 let row;
 
-const size = prompt("Enter grid size:");
+sizeBtn.addEventListener("click", () => {
+    const size = prompt("Enter grid size:");
+    firstSize.textContent = secondSize.textContent = size;
+});
 
-for (let i=1;i<=size;i++){
-    if (size>60){
+
+sizeBtn.addEventListener("click", makeGrid);
+
+function makeGrid(){
+    rows.forEach((row) =>{
+        container.removeChild(row);
+})
+    for (let i=1;i<=firstSize.textContent;i++){
+        if (firstSize.textContent>60){
+            alert("Max size is 60!");
+            break;
+        }
+        row = document.createElement('div');
+        row.classList.toggle('row');
+        container.appendChild(row);
+
+        for (let j=1;j<=firstSize.textContent;j++){
+            pixel = document.createElement('div');
+            pixel.classList.toggle('pixel');
+            row.appendChild(pixel);
+        }
+
+    }
+}
+
+
+for (let i=1;i<=firstSize.textContent;i++){
+    if (firstSize.textContent>60){
         alert("Max size is 60!");
         break;
     }
@@ -13,7 +45,7 @@ for (let i=1;i<=size;i++){
     row.classList.toggle('row');
     container.appendChild(row);
 
-    for (let j=1;j<=size;j++){
+    for (let j=1;j<=firstSize.textContent;j++){
         pixel = document.createElement('div');
         pixel.classList.toggle('pixel');
         row.appendChild(pixel);
@@ -21,6 +53,7 @@ for (let i=1;i<=size;i++){
 
 }
 
+const rows = document.querySelectorAll('.row');
 const pixels = document.querySelectorAll('.pixel');
 
 pixels.forEach((pixel)=>{
