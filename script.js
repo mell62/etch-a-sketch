@@ -19,15 +19,11 @@ sizeBtn.addEventListener("click", () => {
     }
 });
 
-
+sizeBtn.addEventListener("click", removeGrid);
 sizeBtn.addEventListener("click", makeGrid);
 sizeBtn.addEventListener("click", sketch);
 
 function makeGrid(){
-    rows.forEach((row) => {
-        container.removeChild(row);
-    })
-
     for (let i=1;i<=firstSize.textContent;i++){
         row = document.createElement('div');
         row.classList.toggle('row');
@@ -41,6 +37,12 @@ function makeGrid(){
 
     }
     rows = document.querySelectorAll('.row');
+}
+
+function removeGrid(){
+    rows.forEach((row) => {
+        container.removeChild(row);
+    })
 }
 
 function sketch(){
