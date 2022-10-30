@@ -18,10 +18,7 @@ body{
     justify-content: space-evenly;
 }
 
-.size-btn,
-.sketch-btn,
-.clear-btn,
-.eraser-btn{
+.btn{
     padding: 20px 40px;
     border: 1px solid white;
     border-radius: 20px;
@@ -31,6 +28,18 @@ body{
     font-family: "Shadows Into Light", sans-serif;
     font-weight: bold;
     text-shadow: 1px 1px 10px rgb(255, 200, 209);
+}
+
+.click-btn {
+    padding: 20px 40px;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: white; 
+    color: black;
+    font-size: 24px;
+    font-family: "Shadows Into Light", sans-serif; 
+    font-weight: bold;
+    text-shadow: 1px 1px 10px rgb(0, 0, 0);
 }
 
 .container {
