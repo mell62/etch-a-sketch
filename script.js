@@ -33,6 +33,7 @@ function makeGrid(){
         }
 
     }
+    rows = document.querySelectorAll('.row');
 }
 
 
@@ -53,7 +54,7 @@ for (let i=1;i<=firstSize.textContent;i++){
 
 }
 
-const rows = document.querySelectorAll('.row');
+let rows = document.querySelectorAll('.row');
 const pixels = document.querySelectorAll('.pixel');
 
 pixels.forEach((pixel)=>{
