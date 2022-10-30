@@ -1,4 +1,5 @@
 const container = document.querySelector('.container');
+const buttons = document.querySelectorAll('button');
 const sizeBtn = document.querySelector('.size-btn');
 const firstSize = document.querySelector('.size-1');
 const secondSize = document.querySelector('.size-2');
@@ -7,6 +8,22 @@ const clearBtn = document.querySelector('.clear-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
 let pixel;
 let row;
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        buttons.forEach((button) => {
+            button.classList.remove('click-btn');
+            button.classList.add('btn');
+        })
+    })
+
+    button.addEventListener("click", () => {
+        if(button.textContent !== "set grid size" && button.textContent !== "clear grid"){
+            button.classList.remove('btn');
+            button.classList.add('click-btn');
+        };
+    });
+});
 
 sizeBtn.addEventListener("click", () => {
     const size = prompt("Enter grid size:");
@@ -22,12 +39,19 @@ sizeBtn.addEventListener("click", () => {
     }
 });
 
+clearBtn.addEventListener("click", () => {
+    sketchBtn.classList.remove('btn');
+    sketchBtn.classList.add('click-btn');
+})
+
+sizeBtn.addEventListener("click", defaultBtncolor);
 sizeBtn.addEventListener("click", removeGrid);
 sizeBtn.addEventListener("click", makeGrid);
 sizeBtn.addEventListener("click", sketch);
 sketchBtn.addEventListener("click", sketch);
 clearBtn.addEventListener("click", clearPixels);
 eraserBtn.addEventListener("click", eraser);
+clearBtn.addEventListener("click", sketch);
 
 function makeGrid(){
     for (let i=1;i<=firstSize.textContent;i++){
@@ -116,7 +140,15 @@ function eraser(){
     });
 }
 
+function defaultBtncolor(){
+    sketchBtn.classList.remove('btn');
+    sketchBtn.classList.add('click-btn');
+}
+
 // default grid
+sketchBtn.classList.remove('btn');
+sketchBtn.classList.add('click-btn');
+
 for (let i=1;i<=firstSize.textContent;i++){
     row = document.createElement('div');
     row.classList.toggle('row');
