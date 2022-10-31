@@ -55,6 +55,7 @@ body{
     display: flex;
     padding-top: 20px;
     justify-content: center;
+    padding-right: 40px;
 }
 
 img {
