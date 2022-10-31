@@ -39,8 +39,10 @@ buttons.forEach((button) => {
 });
 
 sizeBtn.addEventListener("click", () => {
-    const size = prompt("Enter grid size:");
+    let size = prompt("Enter grid size:");
+    size = Number(size);
     if(!size){
+        alert("Enter a number!");
         firstSize.textContent = secondSize.textContent = firstSize.textContent;
     }
     else if(size>60) {
