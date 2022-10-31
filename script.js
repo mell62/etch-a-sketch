@@ -11,12 +11,24 @@ let pixel;
 let row;
 
 buttons.forEach((button) => {
+    button.addEventListener("mouseover", () => {
+        button.classList.add('hover');
+    })
+});
+
+buttons.forEach((button) => {
+    button.addEventListener("mouseleave", () => {
+        button.classList.remove('hover');
+    })
+});
+
+buttons.forEach((button) => {
     button.addEventListener("click", () => {
         buttons.forEach((button) => {
             button.classList.remove('click-btn');
             button.classList.add('btn');
         })
-    })
+    });
 
     button.addEventListener("click", () => {
         if(button.textContent !== "set grid size" && button.textContent !== "clear grid"){
