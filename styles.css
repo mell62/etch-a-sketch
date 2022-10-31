@@ -28,6 +28,8 @@ body{
     font-family: "Shadows Into Light", sans-serif;
     font-weight: bold;
     text-shadow: 1px 1px 10px rgb(255, 200, 209);
+    width: 200px;
+    height: auto;
 }
 
 .click-btn {
@@ -40,6 +42,8 @@ body{
     font-family: "Shadows Into Light", sans-serif; 
     font-weight: bold;
     text-shadow: 1px 1px 10px rgb(0, 0, 0);
+    width: 200px;
+    height: auto;
 }
 
 .toy {
@@ -50,7 +54,7 @@ body{
 
 img {
     height: 550px;
-    width: auto;
+    width: 700px;
     user-select: none;
     pointer-events: none;
 }
@@ -60,20 +64,12 @@ img {
     display: flex;
     flex-direction: column;
     border: solid green;
-    border-radius: 20px;
-    width: 602px;
+    border-radius: 15px;
+    width: 560px;
     height: 375px;
-    margin-left: -688px;
+    margin-left: -632px;
     margin-top: 58px;
 }
-
-.rows-container {
-    display: flex;
-    flex-direction: column;
-    width: 850px;
-    height: 850px;
-}
-
 
 .row {
     display: flex;
