@@ -4,6 +4,7 @@ const sizeBtn = document.querySelector('.size-btn');
 const firstSize = document.querySelector('.size-1');
 const secondSize = document.querySelector('.size-2');
 const sketchBtn = document.querySelector('.sketch-btn');
+const yummyBtn = document.querySelector('.yummy-btn')
 const clearBtn = document.querySelector('.clear-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
 let pixel;
@@ -49,6 +50,7 @@ sizeBtn.addEventListener("click", removeGrid);
 sizeBtn.addEventListener("click", makeGrid);
 sizeBtn.addEventListener("click", sketch);
 sketchBtn.addEventListener("click", sketch);
+yummyBtn.addEventListener("click", yummySketch);
 clearBtn.addEventListener("click", clearPixels);
 eraserBtn.addEventListener("click", eraser);
 clearBtn.addEventListener("click", sketch);
@@ -87,6 +89,7 @@ function sketch(){
                 done = true;
             })
             if(!done){
+                pixel.removeAttribute('style');
                 pixel.classList.add('black');
             }
             pixels.forEach((pixel)=>{                          // for click n drag
@@ -95,6 +98,7 @@ function sketch(){
                         done=true;
                     });
                     if(!done){
+                        pixel.removeAttribute('style');
                         pixel.classList.add('black');
                     }
 
@@ -108,6 +112,7 @@ function clearPixels(){
     let pixels = document.querySelectorAll('.pixel');
     pixels.forEach((pixel) => {
         pixel.classList.remove('black');
+        pixel.removeAttribute('style');
     });
 }
 
@@ -124,6 +129,7 @@ function eraser(){
             })
             if(!done){
                 pixel.classList.remove('black');
+                pixel.removeAttribute('style');
             }
             pixels.forEach((pixel)=>{
                 pixel.addEventListener("mouseover", () => {
@@ -132,12 +138,49 @@ function eraser(){
                     });
                     if(!done){
                         pixel.classList.remove('black');
+                        pixel.removeAttribute('style');
                     }
 
                 });
             });
         });
     });
+}
+
+function yummySketch(){
+    let pixels = document.querySelectorAll('.pixel');
+    pixels.forEach((pixel) => {       
+        pixel.ondragstart = function() {
+            return false;
+        };
+        pixel.addEventListener("mousedown", () => {
+            let done = false;
+            pixel.addEventListener("mouseup", () => {
+                done = true;
+            })
+            if(!done){
+                pixel.style.backgroundColor = randomColor();
+            }
+            pixels.forEach((pixel)=>{
+                pixel.addEventListener("mouseover", () => {
+                    window.addEventListener("mouseup", () => {
+                        done=true;
+                    });
+                    if(!done){
+                        pixel.style.backgroundColor = randomColor();
+                    }
+
+                });
+            });
+        });
+    });
+}
+
+function randomColor(){
+    let random1 = Math.round(Math.random()*255);
+    let random2 = Math.round(Math.random()*255);
+    let random3 = Math.round(Math.random()*255);
+    return `rgb(${random1},${random2},${random3})`;
 }
 
 function defaultBtncolor(){
