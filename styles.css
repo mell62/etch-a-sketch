@@ -17,12 +17,22 @@ body{
     background-color: black;
 }
 
+.hero {
+    display: flex;
+    height: 100%;
+    padding-top: 30px;
+    padding-left: 180px;
+    column-gap: 50px;
+}
+
 .buttons {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     padding-bottom: 10px;
     background-color: rgb(26, 26, 26);
     padding-top: 18px;
+    row-gap: 60px;
 }
 
 .btn{
@@ -60,17 +70,20 @@ body{
 
 .toy {
     display: flex;
-    padding-top: 20px;
     justify-content: center;
-    padding-right: 40px;
+    align-items: center;
     background-color: rgb(26, 26, 26);
+    padding-left: 300px;
 }
 
 img {
-    height: 550px;
-    width: 700px;
+    height: 600px;
+    width: 750px;
+    -webkit-user-drag: none;
     user-select: none;
-    pointer-events: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .container {
@@ -79,10 +92,10 @@ img {
     flex-direction: column;
     border: solid green;
     border-radius: 15px;
-    width: 560px;
-    height: 375px;
-    margin-left: -632px;
-    margin-top: 58px;
+    width: 518px;
+    height: 440px;
+    margin-left: -634px;
+    margin-top: -80px;
 }
 
 .row {
@@ -100,8 +113,8 @@ img {
 
 .grid-size-parent{
     display: flex;
-    justify-content: center;
-    padding: 10px;
+    flex-direction: column;
+    padding-top: 38px;
     background-color: rgb(26, 26, 26);
 }
 
@@ -112,4 +125,6 @@ img {
     font-family: "Caveat", sans-serif;
     color: rgb(211, 211, 211);
     border: dashed red;
+    height: fit-content;
+
 }

@@ -14,21 +14,28 @@
   </head>
   <body>
     <div class="heading">ETCH A SKETCH</div>
-    <div class="buttons">
-      <button class="size-btn btn">set grid size</button>
-      <button class="sketch-btn btn">sketch</button>
-      <button class="yummy-btn btn">yummy!</button>
-      <button class="clear-btn btn">clear grid</button>
-      <button class="eraser-btn btn">eraser</button>
-    </div>
-    <div class="grid-size-parent">
-      <div class="grid-size">
-        <span class="size-1">16</span> X <span class="size-2">16</span>
+    <div class="hero">
+      <div class="buttons">
+        <button class="size-btn btn">set grid size</button>
+        <button class="sketch-btn btn">sketch</button>
+        <button class="yummy-btn btn">yummy!</button>
+        <button class="clear-btn btn">clear grid</button>
+        <button class="eraser-btn btn">eraser</button>
       </div>
-    </div>
-    <div class="toy">
-      <img src="images/device.png" alt="etch a sketch toy" />
-      <div class="container"></div>
+      <div class="grid-size-parent">
+        <div class="grid-size">
+          <span class="size-1">16</span> X <span class="size-2">16</span>
+        </div>
+      </div>
+      <div class="toy">
+        <img
+          draggable="false"
+          (dragstart)="false;"
+          src="images/device.png"
+          alt="etch a sketch toy"
+        />
+        <div class="container"></div>
+      </div>
     </div>
   </body>
 </html>
