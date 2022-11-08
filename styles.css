@@ -123,5 +123,6 @@ img {
     color: rgb(211, 211, 211);
     border: dashed red;
     height: fit-content;
-
+    width: 90px;
+    text-align: center;
 }
